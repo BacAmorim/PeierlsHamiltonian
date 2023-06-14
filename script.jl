@@ -1,6 +1,8 @@
 using Quantica
 using LinearAlgebra, StaticArrays, SparseArrays
 
+
+# useful functions
 function fractional(x)
     return x - ceil(x-0.5)
 end
@@ -12,6 +14,7 @@ function pdistance(r, A, Ainv)
     return A*fractional.(u)
 end
 
+# struct definition
 struct LatticeBasis{E, D, Ts, ED}
     matrix::SMatrix{E, D, Ts, ED}
 end
@@ -68,7 +71,7 @@ function (ph::PeierlsHamiltonian)(A)
 end
 
 
-# test HBN
+# test: HBN
 a1 = SA[0.5, sqrt(3)/2, 0]
 a2 = SA[-0.5, sqrt(3)/2, 0]
 sA = SA[0.0, 0.0, 0.0]
